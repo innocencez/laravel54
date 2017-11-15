@@ -62,6 +62,7 @@
             </ul>
         </div>
 
-    </div><!-- /.blog-main -->
-
+    </div>
+    <!-- /.blog-main -->
+    <!--这里做内容保留-->
 @endsection
