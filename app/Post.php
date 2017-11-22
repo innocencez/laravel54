@@ -3,9 +3,23 @@
 namespace App;
 
 use App\Model;
-
+use Laravel\Scout\Searchable;
 class Post extends Model
 {
+    use Searchable;
+    //定义索引里边的type
+    public function searchableAs()
+    {
+        return 'post';
+    }
+    //定义有哪些字段需要索引
+    public function toSearchableArray()
+    {
+        return [
+            'title' => $this->title,
+            'content' => $this->content,
+        ];
+    }
     //关联用户模型
     public function user(){
         return $this->belongsTo('App\User');
