@@ -8,7 +8,11 @@ class LoginController extends Controller
 {
     //登录页
     public function index(){
-        return view('login/index');
+        if(\Auth::check()){
+            return redirect('/posts');
+        }else{
+            return view('login/index');
+        }
     }
     //登录逻辑
     public function login(){
