@@ -5,6 +5,7 @@
             <p><img src="{{ $user->avatar }}" alt="" class="img-rounded" style="border-radius:500px; height: 40px"> {{ $user->name }}
             </p>
             <footer>关注：{{ $user->stars_count }}｜粉丝：{{ $user->fans_count }}｜文章：{{ $user->posts_count }}</footer>
+            @include('user.badges.like',['target_user' => $user])
         </blockquote>
     </div>
     <div class="col-sm-8 blog-main">
@@ -26,45 +27,24 @@
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="tab_2">
-                                                                    <div class="blog-post" style="margin-top: 30px">
-                            <p class="">Jadyn Medhurst Jr.</p>
-                            <p class="">关注：1 | 粉丝：1｜ 文章：0</p>
-
-                            <div>
-                    <button class="btn btn-default like-button" like-value="1" like-user="6" _token="MESUY3topeHgvFqsy9EcM916UWQq6khiGHM91wHy" type="button">取消关注</button>
-            </div>
-
-                        </div>
-                                                                    <div class="blog-post" style="margin-top: 30px">
-                            <p class="">Mrs. Felicita D&#039;Amore DVM</p>
-                            <p class="">关注：0 | 粉丝：1｜ 文章：1</p>
-
-                            <div>
-                    <button class="btn btn-default like-button" like-value="1" like-user="55" _token="MESUY3topeHgvFqsy9EcM916UWQq6khiGHM91wHy" type="button">取消关注</button>
-            </div>
-
-                        </div>
-                                                                    <div class="blog-post" style="margin-top: 30px">
-                            <p class="">Maybell VonRueden</p>
-                            <p class="">关注：0 | 粉丝：2｜ 文章：0</p>
-
-                            <div>
-                    <button class="btn btn-default like-button" like-value="1" like-user="3" _token="MESUY3topeHgvFqsy9EcM916UWQq6khiGHM91wHy" type="button">取消关注</button>
-            </div>
-
-                        </div>
-                                                                    <div class="blog-post" style="margin-top: 30px">
-                            <p class="">Miss Melyssa Bogan DDS</p>
-                            <p class="">关注：2 | 粉丝：2｜ 文章：3</p>
-
-                            <div>
-                    <button class="btn btn-default like-button" like-value="1" like-user="2" _token="MESUY3topeHgvFqsy9EcM916UWQq6khiGHM91wHy" type="button">取消关注</button>
-            </div>
-
-                        </div>
-                                    </div>
+                    @foreach($susers as $suser)
+                    <div class="blog-post" style="margin-top: 30px">
+                        <p class="">{{ $suser->name }}</p>
+                        <p class="">关注：{{ $suser->stars_count }} | 粉丝：{{ $suser->fans_count }}｜ 文章：{{ $suser->posts_count }}</p>
+                        @include('user.badges.like',['target_user' => $suser])
+                    </div>
+                    @endforeach
+                </div>
                 <!-- /.tab-pane -->
-                <div class="tab-pane" id="tab_3"></div>
+                <div class="tab-pane" id="tab_3">
+                    @foreach($fusers as $fuser)
+                        <div class="blog-post" style="margin-top: 30px">
+                            <p class="">{{ $fuser->name }}</p>
+                            <p class="">关注：{{ $fuser->stars_count }} | 粉丝：{{ $fuser->fans_count }}｜ 文章：{{ $fuser->posts_count }}</p>
+                            @include('user.badges.like',['target_user' => $fuser])
+                        </div>
+                    @endforeach
+                </div>
                 <!-- /.tab-pane -->
             </div>
             <!-- /.tab-content -->

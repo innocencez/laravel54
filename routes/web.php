@@ -29,9 +29,9 @@ Route::group(['middleware' => 'auth:web'],function(){
     //个人中心
     Route::get('/user/{user}','\App\Http\Controllers\UserController@index');
     //关注某人
-    Route::get('/user/{user}/fan','\App\Http\Controllers\UserController@fan');
+    Route::post('/user/{user}/fan','\App\Http\Controllers\UserController@fan');
     //取消关注
-    Route::get('/user/{user}/unFan','\App\Http\Controllers\UserController@unFan');
+    Route::post('/user/{user}/unFan','\App\Http\Controllers\UserController@unFan');
     //文章列表页
     Route::get('/posts','\App\Http\Controllers\PostController@index');
     //创建文章
