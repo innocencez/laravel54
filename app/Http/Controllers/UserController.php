@@ -53,11 +53,21 @@ class UserController extends Controller
         return back();
     }
     //关注某人
-    public function fan(){
-        return ;
+    public function fan(User $user){
+        $me = \Auth::user();
+        $me->dofan($user->id);
+        return [
+            'error' => 0,
+            'msg' => ''
+        ];
     }
     //取消关注
-    public function unFan(){
-        return ;
+    public function unFan(User $user){
+        $me = \Auth::user();
+        $me->doUnfan($user->id);
+        return [
+            'error' => 0,
+            'msg' => ''
+        ];
     }
 }
