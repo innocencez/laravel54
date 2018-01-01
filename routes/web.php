@@ -54,5 +54,7 @@ Route::group(['middleware' => 'auth:web'],function(){
     Route::get('/posts/{post}/zan','\App\Http\Controllers\PostController@zan');
     //取消赞
     Route::get('/posts/{post}/unzan','\App\Http\Controllers\PostController@unzan');
+    //专题详情页
+    Route::get('/topics/1/show','\App\Http\Controllers\TopicController@show');
 });
 
