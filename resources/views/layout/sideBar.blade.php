@@ -21,7 +21,7 @@
         <ul class="category-root list-group">
             @foreach($topics as $topic)
             <li class="list-group-item">
-                <a href="/topic/{{ $topic->id }}">{{ $topic->name }}
+                <a href="/topics/{{ $topic->id }}/show">{{ $topic->name }}
                 </a>
             </li>
             @endforeach
