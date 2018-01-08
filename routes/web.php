@@ -55,6 +55,10 @@ Route::group(['middleware' => 'auth:web'],function(){
     //取消赞
     Route::get('/posts/{post}/unzan','\App\Http\Controllers\PostController@unzan');
     //专题详情页
-    Route::get('/topics/1/show','\App\Http\Controllers\TopicController@show');
+    Route::get('/topics/{topic}/show','\App\Http\Controllers\TopicController@show');
+    //专题投稿
+    Route::post('/topics/{topic}/submit','\App\Http\Controllers\TopicController@submit');
 });
+//后台路由
+include_once('admin.php');
 
