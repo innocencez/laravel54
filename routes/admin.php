@@ -10,5 +10,10 @@ Route::group(['prefix'=>'admin'],function (){
     Route::group(['middleware'=>'auth:admin'],function (){
         //后台首页
         Route::get('/home','\App\Admin\Controllers\HomeController@index');
+        //用户列表页
+        Route::get('/users','\App\Admin\Controllers\UserController@index');
+        //添加用户
+        Route::get('/users/create','\App\Admin\Controllers\UserController@create');
+        Route::post('/users/store','\App\Admin\Controllers\UserController@store');
     });
 });
