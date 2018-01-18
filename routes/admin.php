@@ -15,5 +15,9 @@ Route::group(['prefix'=>'admin'],function (){
         //添加用户
         Route::get('/users/create','\App\Admin\Controllers\UserController@create');
         Route::post('/users/store','\App\Admin\Controllers\UserController@store');
+        //文章列表
+        Route::get('/posts','\App\Admin\Controllers\PostController@index');
+        //审核文章
+        Route::post('/posts/{post}/status','\App\Admin\Controllers\PostController@status');
     });
 });

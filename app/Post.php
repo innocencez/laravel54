@@ -52,4 +52,12 @@ class Post extends Model
             return $q->where('topic_id',$topic_id);
         });
     }
+    //全局scope
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope("avaiable",function (Builder $builder){
+            $builder->whereIn('status',[0,1]);
+        });
+    }
 }
